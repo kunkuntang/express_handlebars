@@ -36,21 +36,26 @@ express_handlebars
 ```
 
 - **views**：
+
 &emsp;&emsp;views文件夹是handlebars的视图默认存放的地方,因为在默认情况下，Express会在views子目录中查找视图（ps:别问我为什么，我也不知道
 (-_-||)，反正它就是这样子规定的），然后在这个文件夹里放的是各种经过express路由处理过后决定渲染的视图
 
 - **views -> layout**
+
 &emsp;&emsp;layout是一个handlebars存放视图模版的文件夹
 （ps:也是规定的，没有为什么，有兴趣可以去看官网，虽然是全英的，但是静下心来翻译一下还是可以看得懂的，如果有发现翻译得好的中文版麻烦留个言跟我说一下 (ˉ﹃ˉ) )
 
 - **views -> partials**
+
 &emsp;&emsp;这个是放局部组件的地方，通常我们会把自己封装好的组件放在这个文件夹里
 （ps: 嗯！没错，也是规定的）
 
 - **public**:
+
 &emsp;&emsp;这是一个放浏览器请求服务器各种静态资源的文件夹
 
 - **asset**:
+
 &emsp;&emsp;这是一个放服务器需要的静态资源的文件夹
 
 #####**4. handlebars作用说明**
@@ -96,8 +101,6 @@ app.get('/blockExpression', function(req, res) {
 ```
 
 &emsp;&emsp;更多请去[handlebars官网](http://http://handlebarsjs.com/)查看。
-
-使用全局变量 res.locals.
 
 - **handlebars default layout （默认布局）**
 
@@ -147,7 +150,7 @@ app.get('/custom', function (req, res) {
 
 - **handlebars null layout （不使用布局）**
 
-如果要完全不使用布局，也可以在路由处理中传入null:
+&emsp;&emsp;如果要完全不使用布局，也可以在路由处理中传入null:
 ```JS
 app.get('/nolayout', function (req, res) {
 	res.render('noLayout', { layout: null })
@@ -156,7 +159,7 @@ app.get('/nolayout', function (req, res) {
 
 - **handlebars partials （组件）**
 
-组件和模块是现在非常流行的一个概念，要在hanglebars里使用组件，首先要在partials文件夹里新建一个组件（比如这里的panel.hanglebars），然后就可以在页面里简单地使用这个组件了：
+&emsp;&emsp;组件和模块是现在非常流行的一个概念，要在hanglebars里使用组件，首先要在partials文件夹里新建一个组件（比如这里的panel.hanglebars），然后就可以在页面里简单地使用这个组件了：
 ```JS
 <h1>panel partials page</h1>
 {{> panel}}
@@ -295,7 +298,7 @@ this is a page for res.locals object testing
 
 - simplify the handlebars files extensions （简化handlebars的后缀名）
 
-有时候在新建文件的时候会觉得**.handlebars**这样的后缀名太多，无论是出于麻烦还是美观，我都觉得把它缩减是比较好的，如果你想你可以这样在引入视图模版的时候配置扩展名选项 **extname**：
+&emsp;&emsp;有时候在新建文件的时候会觉得**.handlebars**这样的后缀名太多，无论是出于麻烦还是美观，我都觉得把它缩减是比较好的，如果你想你可以这样在引入视图模版的时候配置扩展名选项 **extname**：
 ```JS
 var handlebars = require('express3-handlebars').create(
 	{
